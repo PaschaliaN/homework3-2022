@@ -94,7 +94,10 @@ a.skip{
   left: -500px;
   overflow: hidden;
 }
-a.skip:focus{left: 500px;}
+
+a.skip:focus{
+  left: 500px;
+}
 
 
 /* Requirement 4 code here*/
@@ -104,47 +107,76 @@ nav a:focus{
 }
 /* code above not working */
 
-@media screen and (min-width: 680px) and (resolution: 163dpi){
+@media screen and (min-width: 600px){
   .container{
     /* Requirement 5 code here*/
       display: grid;
-      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-columns:1fr 5fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
       row-gap: 30px;
+      background-color: red;
     }
 
 /* Requirements 6-10 here: */
-.intro{
-  /* background image not displaying */
+/* .intro{
   background-image: url("images/header.jpg");
-  /* background-color:#858585 ; */
+  background-color:#858585 ;
   min-height: 400px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-#about#clients#method#contant{
-  grid-column: 2 /span 1;
-  z-index: 1;
-}
-
+} */
 img{
   width: 100%;
 }
 
-img .about-image.clients-image.method-image.contact-image{
+#about{
+  grid-area: 1 / 2 / span 1 / span 1;
+  z-index: 1;
+}
+.about-image{
+  grid-area: 1 / 1 / span 1 / span 3;
+  z-index: 0;
   max-height: 500px;
   overflow: hidden;
-  z-index: 0;
-  grid-column: 1 / 4;
 }
 
+#clients{
+  grid-area: 2 / 2 / span 1 / span 1 ;
+  z-index: 1;
+  margin-top: 0;
+}
+.clients-image{
+  grid-area: 2 / 1 / span 1/ span 3;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+#method{
+  grid-area: 3 / 2 / span 1 / span 1;
+  z-index: 1;
+}
+.method-image{
+  grid-area: 3 / 1 / span 1 / span 3;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+#contant{
+  grid-area: 4 / 2 / span 1/ span 1;
+  z-index: 1;
+}
+.contact-image{
+  grid-area: 4 / 1 / span 1 / span 3;
+  max-height: 500px;
+  overflow: hidden;
+}
 
 .text{
   text-align: center;
   max-height: 25%;
-  overflow: visible;
+  overflow: scroll;
 }
 }
 
@@ -163,7 +195,7 @@ img .about-image.clients-image.method-image.contact-image{
 
 
   /* Requirements 12-15 here: */
-  a.skip:focus{
+   a.skip:focus{
     left: 0;
     top: 20px;
   }
@@ -171,14 +203,13 @@ img .about-image.clients-image.method-image.contact-image{
     display: grid;
     grid-area: repeat(4, 300px) / 50px auto 500px auto 50px;
   } 
-   .about, .method, .clients-image, .contact-image {
+   .about.method.clients-image.contact-image {
     grid-column: 3 / span 2;
   }
 
-  .clients, .contact, .about-image, .method-image{
+  .clients.contact.about-image.method-image{
     grid-column: 2 / span 2;
   }
-
 }
 
 
